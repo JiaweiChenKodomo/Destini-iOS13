@@ -20,15 +20,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storyLabel.text = "You see a fork in the road."
-        choice1Button.setTitle("Take a left.", for: .normal)
-        choice2Button.setTitle("Take a right.", for: .normal)
+        updateView(nextStory: storyBrain.stories[storyBrain.currentLevel])
 
     }
     
     
     @IBAction func choiceMade(_ sender: UIButton) {
-        let nextStory = storyBrain.nextStory(choice: sender.currentTitle!, level: 0)
+        
+        let nextStory = storyBrain.nextStory(choice: sender.currentTitle!)
         
         updateView(nextStory: nextStory)
     }
